@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Seafoam Serenity Palette */
+:root {
+    --eggplant: #614051;
+    --seafoam: #96CEB4;
+    --pale-yellow: #FFEAA7;
+    --plum: #DDA0DD;
+    --sea-green: #2E8B57;
+    
+    /* Light Mode Colors */
+    --primary-color: #2E8B57;        /* Sea Green */
+    --secondary-color: #FFEAA7;      /* Pale Yellow */
+    --dark-color: #3D2B35;          /* Darker eggplant for text */
+    --light-color: #ffffff;         /* Pure white */
+    --danger-color: #dc3545;        /* Keep original red for danger */
+    --success-color: #2E8B57;       /* Use sea green for success */
+    --warning-color: #ffc107;       /* Keep original yellow for warning */
+    --accent-color: #96CEB4;        /* Seafoam */
+    --base-color: #F0F8F5;          /* Very light seafoam background */
+    --base-variant: #E8F5E8;        /* Light green variant */
+    --text-color: #3D2B35;          /* Dark eggplant text */
+    --secondary-text: #614051;      /* Eggplant secondary */
+    --border-color: #96CEB4;        /* Seafoam borders */
+    --card-bg: #ffffff;             /* White card background */
+    --input-bg: #ffffff;            /* White input background */
+}
+
+/* Dark Mode Colors */
+.darkmode {
+    --primary-color: #96CEB4;        /* Seafoam (brighter in dark) */
+    --secondary-color: #1A2B1F;      /* Very dark green background */
+    --dark-color: #E8F5E8;          /* Light green for text */
+    --light-color: #0D1B11;         /* Very dark forest green */
+    --accent-color: #DDA0DD;        /* Plum accent */
+    --base-color: #0D1B11;          /* Very dark forest background */
+    --base-variant: #1A2B1F;        /* Dark green variant */
+    --text-color: #E8F5E8;          /* Light green text */
+    --secondary-text: #96CEB4;      /* Seafoam secondary */
+    --border-color: #2E8B57;        /* Sea green borders */
+    --card-bg: #1A2B1F;             /* Dark green card background */
+    --input-bg: #0D1B11;            /* Very dark input background */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--base-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* Light mode natural gradient background */
+body:not(.darkmode) {
+    background: linear-gradient(135deg, var(--pale-yellow) 0%, var(--seafoam) 50%, var(--sea-green) 100%);
+}
+
+/* Dark mode forest gradient background */
+.darkmode {
+    background: linear-gradient(135deg, #0D1B11 0%, #1A2B1F 50%, #2B4A3D 100%);
+}
+
+/* Form Styling */
+.form-container {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(46, 139, 87, 0.15);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.darkmode .form-container {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.form-container h2 {
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--light-color);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+}
+
+.redirect-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.redirect-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.redirect-link a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: var(--danger-color);
+    margin-top: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 5px;
+    border-left: 4px solid var(--danger-color);
+}
+
+.success {
+    color: var(--success-color);
+    margin-top: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    background: rgba(46, 139, 87, 0.1);
+    border-radius: 5px;
+    border-left: 4px solid var(--success-color);
+}
+
+/* Dashboard Styling */
+.dashboard-container {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(46, 139, 87, 0.15);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 900px;
+    transition: all 0.3s ease;
+}
+
+.darkmode .dashboard-container {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+header h2 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+}
+
+header #logout-btn {
+    width: auto;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--danger-color), #e74c3c);
+    font-size: 0.9rem;
+}
+
+/* Admin Table */
+#user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(46, 139, 87, 0.1);
+}
+
+#user-table th, #user-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+#user-table th {
+    background: var(--base-variant);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+#user-table button {
+    width: auto;
+    padding: 0.4rem 0.8rem;
+    margin-right: 8px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.approve-btn { 
+    background: linear-gradient(135deg, var(--success-color), #20c997);
+}
+
+.block-btn { 
+    background: linear-gradient(135deg, var(--warning-color), #fd7e14);
+    color: #333;
+}
+
+/* User Task List */
+#task-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 2rem;
+    background: var(--base-variant);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#task-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+}
+
+#task-input::placeholder {
+    color: var(--secondary-text);
+}
+
+#task-form button {
+    width: auto;
+    padding: 0 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+#task-list {
+    list-style: none;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(46, 139, 87, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+#task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    background: var(--card-bg);
+}
+
+#task-list li:hover {
+    background: var(--base-variant);
+    transform: translateX(5px);
+}
+
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+#task-list li .task-actions button {
+    width: auto;
+    padding: 0.4rem 0.8rem;
+    margin-left: 8px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.edit-btn { 
+    background: linear-gradient(135deg, var(--accent-color), var(--plum));
+    color: var(--light-color);
+}
+
+.delete-btn { 
+    background: linear-gradient(135deg, var(--danger-color), #e74c3c);
+}
+
+/* Theme Switch Button */
+#theme-switch {
+    height: 55px;
+    width: 55px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--base-variant);
+    border: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(46, 139, 87, 0.2);
+}
+
+#theme-switch:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+}
+
+#theme-switch svg {
+    fill: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#theme-switch:hover svg {
+    fill: var(--light-color);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin: 1.5rem 0;
+    background: var(--base-variant);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 8px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* Enhanced styling for task list items */
+#task-list li span {
+    color: var(--text-color);
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+/* Welcome message styling */
+#welcome-message {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Control buttons styling */
+#control button {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    color: var(--light-color);
+    margin-top: 60px; 
+    margin-left: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    margin: 8px;
+    min-width: 140px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+}
+
+#control button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 139, 87, 0.4);
+}
+
+/* Enhanced table styling */
+#user-table {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+#user-table th {
+    background: var(--base-variant);
+    color: var(--text-color);
+}
+
+#user-table td {
+    background: var(--card-bg);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-container, .dashboard-container {
+        margin: 10px;
+        padding: 1.5rem;
+    }
+    
+    #theme-switch {
+        top: 15px;
+        right: 15px;
+        height: 45px;
+        width: 45px;
+    }
+    
+    #task-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    #task-list li .task-actions {
+        align-self: flex-end;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Smooth transitions for theme switching */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Additional styling for better visual hierarchy */
+main h3 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Empty state styling */
+#task-list:empty::after {
+    content: "Add your tasks here";
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary-text);
+    font-style: italic;
+    background: var(--base-variant);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Simple hover effects (like Digital Lavender and Mocha) */
+.form-container:hover, .dashboard-container:hover {
+    box-shadow: 0 20px 40px rgba(46, 139, 87, 0.2);
+}
+
+.darkmode .form-container:hover, 
+.darkmode .dashboard-container:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Natural seafoam-themed gradients for buttons */
+button:not(.edit-btn):not(.delete-btn):not(.approve-btn):not(.block-btn) {
+    background: linear-gradient(135deg, #2E8B57 0%, #96CEB4 50%, #614051 100%);
+}
+
+button:not(.edit-btn):not(.delete-btn):not(.approve-btn):not(.block-btn):hover {
+    background: linear-gradient(135deg, #369870 0%, #A8D8C8 50%, #6B4859 100%);
+}
+
+/* Simple natural touch for theme switch */
+#theme-switch::before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    font-size: 1.2rem;
+    transition: opacity 0.3s ease;
+}
+
+#theme-switch:hover::before {
+    opacity: 0.4;
+}
