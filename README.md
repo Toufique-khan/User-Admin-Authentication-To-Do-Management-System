@@ -52,6 +52,7 @@ While building this project, I improved my understanding of:
 - JavaScript
 - Local Storage API
 
+# Live Preview - https://local-storage-admin-user-todo-list.netlify.app/
 ---
 
 # 🌗 Theme Support
@@ -78,3 +79,5 @@ This project is fully responsive and works smoothly on:
 
 ## Admin Username = Toufique
 ## Password = adminTK
+<br>
+Author - Toufique Ahmed Khan
