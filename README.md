@@ -54,6 +54,15 @@ While building this project, I improved my understanding of:
 
 # Live Preview - https://local-storage-admin-user-todo-list.netlify.app/
 ---
+# Preview 
+<img width="1915" height="915" alt="image" src="https://github.com/user-attachments/assets/10c3d0a6-8c48-4521-bafe-4380970fc1d6" />
+<br>
+<img width="1918" height="910" alt="image" src="https://github.com/user-attachments/assets/fabfbd1e-95c5-4cba-91c5-434bfb7358d5" />
+<br>
+<img width="1919" height="916" alt="image" src="https://github.com/user-attachments/assets/54c6dac9-322c-4686-9732-0edf506069da" />
+<br>
+<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/b07112a9-aca8-4a5f-8339-c07e63e4267e" />
+
 
 # 🌗 Theme Support
 
